@@ -69,7 +69,7 @@ export default function ThemeToggle() {
 				onClick={handleClose}
 				slotProps={{
 					paper: {
-						elevation: 0,
+						elevation: 1,
 						sx: {
 							overflow: "visible",
 							backgroundColor: theme =>
