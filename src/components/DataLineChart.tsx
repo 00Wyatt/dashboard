@@ -10,8 +10,8 @@ function AreaGradient({ color, id }: { color: string; id: string }) {
 	return (
 		<defs>
 			<linearGradient id={id} x1="50%" y1="0%" x2="50%" y2="100%">
-				<stop offset="0%" stopColor={color} stopOpacity={0.5} />
-				<stop offset="100%" stopColor={color} stopOpacity={0} />
+				<stop offset="0%" stopColor={color} stopOpacity={0.4} />
+				<stop offset="100%" stopColor={color} stopOpacity={0.05} />
 			</linearGradient>
 		</defs>
 	);
@@ -22,9 +22,9 @@ export default function DataLineChart() {
 	const data = getDaysInMonth(11, 2024);
 
 	const colorPalette = [
-		theme.palette.primary.light,
+		theme.palette.tertiary.main,
+		theme.palette.secondary.main,
 		theme.palette.primary.main,
-		theme.palette.primary.dark,
 	];
 
 	return (
@@ -134,15 +134,15 @@ export default function DataLineChart() {
 							},
 						}}>
 						<AreaGradient
-							color={theme.palette.primary.dark}
+							color={theme.palette.primary.main}
 							id="organic"
 						/>
 						<AreaGradient
-							color={theme.palette.primary.main}
+							color={theme.palette.secondary.main}
 							id="referral"
 						/>
 						<AreaGradient
-							color={theme.palette.primary.light}
+							color={theme.palette.tertiary.main}
 							id="direct"
 						/>
 					</LineChart>
