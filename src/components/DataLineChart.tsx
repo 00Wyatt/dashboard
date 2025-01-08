@@ -4,6 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import { LineChart } from "@mui/x-charts/LineChart";
+import { getDaysInMonth } from "../utils";
 
 function AreaGradient({ color, id }: { color: string; id: string }) {
 	return (
@@ -16,11 +17,7 @@ function AreaGradient({ color, id }: { color: string; id: string }) {
 	);
 }
 
-export default function DataLineChart({
-	getDaysInMonth,
-}: {
-	getDaysInMonth: Function;
-}) {
+export default function DataLineChart() {
 	const theme = useTheme();
 	const data = getDaysInMonth(11, 2024);
 

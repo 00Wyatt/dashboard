@@ -24,7 +24,6 @@ const data: StatCardProps[] = [
 			340, 380, 360, 400, 380, 420, 400, 640, 340, 460, 440, 480, 460,
 			600, 880, 920,
 		],
-		getDaysInMonth: getDaysInMonth,
 	},
 	{
 		title: "Total Installs",
@@ -36,7 +35,6 @@ const data: StatCardProps[] = [
 			840, 600, 820, 780, 800, 760, 380, 740, 660, 620, 840, 500, 520,
 			480, 400, 360, 300, 220,
 		],
-		getDaysInMonth: getDaysInMonth,
 	},
 	{
 		title: "Total Sales",
@@ -48,24 +46,8 @@ const data: StatCardProps[] = [
 			620, 510, 530, 520, 410, 530, 520, 610, 530, 520, 610, 530, 420,
 			510, 430, 520, 510,
 		],
-		getDaysInMonth: getDaysInMonth,
 	},
 ];
-
-function getDaysInMonth(month: number, year: number) {
-	const date = new Date(year, month, 0);
-	const monthName = date.toLocaleDateString("en-US", {
-		month: "short",
-	});
-	const daysInMonth = date.getDate();
-	const days = [];
-	let i = 1;
-	while (days.length < daysInMonth) {
-		days.push(`${monthName} ${i}`);
-		i += 1;
-	}
-	return days;
-}
 
 function getFormattedDate() {
 	const date = new Date();
@@ -195,7 +177,7 @@ export default function Overview() {
 						<DataBarChart />
 					</Grid>
 					<Grid size={{ xs: 12, lg: 6 }}>
-						<DataLineChart getDaysInMonth={getDaysInMonth} />
+						<DataLineChart />
 					</Grid>
 					<Grid size={{ xs: 12, md: 4 }}>
 						<DataPieChart />

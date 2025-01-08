@@ -9,6 +9,7 @@ import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { SparkLineChart } from "@mui/x-charts/SparkLineChart";
 import { areaElementClasses } from "@mui/x-charts/LineChart";
+import { getDaysInMonth } from "../utils";
 
 export type StatCardProps = {
 	title: string;
@@ -16,7 +17,6 @@ export type StatCardProps = {
 	interval: string;
 	trend: "up" | "down" | "neutral";
 	data: number[];
-	getDaysInMonth: Function;
 };
 
 function AreaGradient({ color, id }: { color: string; id: string }) {
@@ -36,7 +36,6 @@ export default function DataStatCard({
 	interval,
 	trend,
 	data,
-	getDaysInMonth,
 }: StatCardProps) {
 	const theme = useTheme();
 	const daysInWeek = getDaysInMonth(11, 2024);
