@@ -19,7 +19,7 @@ export function SiteLogo({ open }: { open: boolean }) {
 				viewBox="0 0 202 40"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg">
-				<g clip-path="url(#clip0_706_1239)">
+				<g clipPath="url(#clip0_706_1239)">
 					<path
 						fill-rule="evenodd"
 						clip-rule="evenodd"
@@ -110,7 +110,7 @@ export function SiteIcon({ open }: { open: boolean }) {
 				viewBox="0 0 40 40"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg">
-				<g clip-path="url(#clip0_706_1239)">
+				<g clipPath="url(#clip0_706_1239)">
 					<path
 						fill-rule="evenodd"
 						clip-rule="evenodd"

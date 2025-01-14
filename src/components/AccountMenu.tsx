@@ -1,21 +1,14 @@
 import React from "react";
-import { alpha, styled } from "@mui/material/styles";
 import Divider from "@mui/material/Divider";
 import Menu from "@mui/material/Menu";
-import MuiMenuItem from "@mui/material/MenuItem";
-import Avatar from "@mui/material/Avatar";
+import MenuItem from "@mui/material/MenuItem";
+import Avatar, { avatarClasses } from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Tooltip from "@mui/material/Tooltip";
-
-const MenuItem = styled(MuiMenuItem)(({ theme }) => ({
-	margin: theme.spacing(0.5, 0),
-	padding: theme.spacing(1, 2),
-	borderRadius: "8px",
-}));
 
 export default function AccountMenu() {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -56,24 +49,14 @@ export default function AccountMenu() {
 				slotProps={{
 					paper: {
 						elevation: 1,
-						sx: {
-							overflow: "visible",
-							backgroundColor: theme =>
-								alpha(theme.palette.background.paper, 0.8),
-							backdropFilter: "blur(8px)",
-							filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.1))",
-							p: "4px 8px",
-							borderRadius: 2,
-							"& .MuiList-root": {
-								p: 0,
-							},
-							"& .MuiAvatar-root": {
-								width: 32,
-								height: 32,
-								ml: -0.5,
-								mr: 1,
-							},
-						},
+					},
+				}}
+				sx={{
+					[`& .${avatarClasses.root}`]: {
+						width: 32,
+						height: 32,
+						ml: -0.5,
+						mr: 1,
 					},
 				}}
 				transformOrigin={{

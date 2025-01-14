@@ -112,27 +112,27 @@ const NavItemText = styled(ListItemText, {
 	},
 }));
 
-interface MenuItem {
+interface NavigationLink {
 	name: string;
 	url: string;
 	icon: React.ReactElement;
 }
 
-const dashboardPages: MenuItem[] = [
+const dashboardPages: NavigationLink[] = [
 	{ name: "Overview", url: "/", icon: <HomeIcon /> },
 	{ name: "Analytics", url: "/analytics", icon: <BarChartIcon /> },
 	{ name: "Customers", url: "/customers", icon: <PeopleAltIcon /> },
 	{ name: "Products", url: "/products", icon: <SellIcon /> },
 ];
 
-const managePages: MenuItem[] = [
+const managePages: NavigationLink[] = [
 	{ name: "Reports", url: "/reports", icon: <DescriptionIcon /> },
 	{ name: "Accounts", url: "/accounts", icon: <PersonIcon /> },
 	{ name: "Tools", url: "/tools", icon: <BuildIcon /> },
 	{ name: "Calendar", url: "/calendar", icon: <CalendarTodayIcon /> },
 ];
 
-const supportPages: MenuItem[] = [
+const supportPages: NavigationLink[] = [
 	{ name: "Settings", url: "/settings", icon: <SettingsIcon /> },
 	{ name: "About", url: "/about", icon: <InfoIcon /> },
 	{ name: "Feedback", url: "/feedback", icon: <FeedbackIcon /> },

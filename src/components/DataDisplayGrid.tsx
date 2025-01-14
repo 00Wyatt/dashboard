@@ -18,32 +18,62 @@ export default function DataDisplayGrid() {
 			density="standard"
 			sx={theme => ({
 				backgroundColor: theme.palette.background.paper,
+				"& .MuiDataGrid-columnSeparator": {
+					display: "none",
+				},
 				"& .MuiDataGrid-columnHeaders div.MuiDataGrid-row--borderBottom":
 					{
 						backgroundColor: "transparent",
 					},
 			})}
 			slotProps={{
-				filterPanel: {
-					filterFormProps: {
-						logicOperatorInputProps: {
-							variant: "outlined",
-							size: "small",
+				basePopper: {
+					sx: {
+						"& .MuiList-root": {
+							p: 0,
 						},
+						"& .MuiMenuItem-root": {
+							margin: theme => theme.spacing(0.5, 0),
+							padding: theme => theme.spacing(1, 2),
+							borderRadius: 1,
+						},
+					},
+				},
+				filterPanel: {
+					sx: {
+						"& .MuiDataGrid-filterForm": {
+							px: 0,
+						},
+					},
+					filterFormProps: {
 						columnInputProps: {
 							variant: "outlined",
 							size: "small",
-							sx: { mt: "auto" },
+							sx: { mt: "auto", mr: 1 },
 						},
 						operatorInputProps: {
 							variant: "outlined",
 							size: "small",
-							sx: { mt: "auto" },
+							sx: { mt: "auto", mr: 1 },
 						},
 						valueInputProps: {
 							InputComponentProps: {
 								variant: "outlined",
 								size: "small",
+							},
+						},
+					},
+				},
+				baseSelect: {
+					MenuProps: {
+						MenuListProps: {
+							sx: {
+								p: 0,
+								"& .MuiMenuItem-root": {
+									margin: theme => theme.spacing(0.5, 0),
+									padding: theme => theme.spacing(1, 2),
+									borderRadius: 1,
+								},
 							},
 						},
 					},

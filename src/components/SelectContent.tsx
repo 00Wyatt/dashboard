@@ -6,7 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Select, { SelectChangeEvent, selectClasses } from "@mui/material/Select";
 import Divider from "@mui/material/Divider";
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
 import SmartphoneRoundedIcon from "@mui/icons-material/SmartphoneRounded";
@@ -48,17 +48,6 @@ export default function SelectContent() {
 			MenuProps={{
 				PaperProps: {
 					elevation: 1,
-					sx: {
-						backgroundColor: theme =>
-							alpha(theme.palette.background.paper, 0.8),
-						backdropFilter: "blur(8px)",
-						filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.1))",
-						borderRadius: "8px",
-						p: "4px 8px",
-						"& .MuiList-root": {
-							p: 0,
-						},
-					},
 				},
 			}}
 			inputProps={{ "aria-label": "Select content" }}
