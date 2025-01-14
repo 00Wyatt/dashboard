@@ -68,8 +68,8 @@ export const columns: GridColDef[] = [
 	{
 		field: "status",
 		headerName: "Status",
-		flex: 0.5,
-		minWidth: 100,
+		flex: 1,
+		minWidth: 80,
 		renderCell: params => renderStatus(params.value as any),
 	},
 	{
