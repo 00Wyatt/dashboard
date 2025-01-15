@@ -47,7 +47,7 @@ export default function SelectContent() {
 			displayEmpty
 			MenuProps={{
 				PaperProps: {
-					elevation: 1,
+					elevation: 2,
 				},
 			}}
 			inputProps={{ "aria-label": "Select content" }}

@@ -64,6 +64,16 @@ export default function DataDisplayGrid() {
 						},
 					},
 				},
+				columnsPanel: {
+					sx: {
+						"& .MuiDataGrid-columnsManagementHeader": {
+							px: 0,
+						},
+						"& .MuiDataGrid-columnsManagement": {
+							px: 2,
+						},
+					},
+				},
 				baseSelect: {
 					MenuProps: {
 						MenuListProps: {

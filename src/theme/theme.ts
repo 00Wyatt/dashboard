@@ -1,4 +1,5 @@
 import { listClasses } from "@mui/material/List";
+import { paperClasses } from "@mui/material/Paper";
 import { alpha, createTheme, Theme } from "@mui/material/styles";
 
 let theme = createTheme({
@@ -74,11 +75,17 @@ let theme = createTheme({
 
 // Shared styles
 const backgroundStyles = ({ theme }: { theme: Theme }) => ({
-	backgroundColor: alpha(theme.palette.background.paper, 0.8),
-	backdropFilter: "blur(8px)",
-	boxShadow: theme.shadows[4],
-	padding: theme.spacing(0.5, 1),
-	borderRadius: theme.shape.borderRadius * 2,
+	[`& .${paperClasses.root}`]: {
+		backgroundColor: alpha(theme.palette.background.paper, 0.8),
+		backdropFilter: "blur(8px)",
+		boxShadow: theme.shadows[4],
+		padding: theme.spacing(0.5, 1),
+		borderRadius: theme.shape.borderRadius * 2,
+		...theme.applyStyles("dark", {
+			backgroundImage:
+				"linear-gradient(rgba(255, 255, 255, 0.069), rgba(255, 255, 255, 0.069));",
+		}),
+	},
 	[`& .${listClasses.root}`]: {
 		padding: 0,
 	},
@@ -88,12 +95,12 @@ theme = createTheme(theme, {
 	components: {
 		MuiPopper: {
 			styleOverrides: {
-				paper: backgroundStyles,
+				root: backgroundStyles,
 			},
 		},
 		MuiPopover: {
 			styleOverrides: {
-				paper: backgroundStyles,
+				root: backgroundStyles,
 			},
 		},
 		MuiMenuItem: {

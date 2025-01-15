@@ -48,7 +48,7 @@ export default function AccountMenu() {
 				onClick={handleClose}
 				slotProps={{
 					paper: {
-						elevation: 1,
+						elevation: 2,
 					},
 				}}
 				sx={{

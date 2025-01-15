@@ -77,7 +77,7 @@ export default function OptionsMenu({ open }: { open: boolean }) {
 				anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
 				slotProps={{
 					paper: {
-						elevation: 1,
+						elevation: 2,
 					},
 				}}
 				sx={{
