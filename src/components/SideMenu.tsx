@@ -99,11 +99,14 @@ export default function SideMenu({
 								flexDirection: "column",
 							},
 						}),
+						"& .simplebar-scrollbar::before": {
+							backgroundColor: "#444",
+						},
 					},
 					theme =>
 						theme.applyStyles("dark", {
 							"& .simplebar-scrollbar::before": {
-								backgroundColor: theme.palette.text.secondary,
+								backgroundColor: "#555",
 							},
 						}),
 				]}>

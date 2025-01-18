@@ -7,13 +7,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Badge from "@mui/material/Badge";
 import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import ThemeToggle from "./ThemeToggle";
 import SelectContent from "./SelectContent";
 import { drawerWidth } from "./Layout";
 import SearchBar from "./SearchBar";
 import AccountMenu from "./AccountMenu";
 import Box from "@mui/material/Box";
+import NotificationsMenu from "./NotificationsMenu";
 
 interface AppBarProps extends MuiAppBarProps {
 	open?: boolean;
@@ -111,18 +111,11 @@ export default function AppNavBar({
 					size="large"
 					aria-label="show 4 new mails"
 					color="inherit">
-					<Badge badgeContent={4} color="error">
+					<Badge badgeContent={2} color="error">
 						<MailIcon />
 					</Badge>
 				</IconButton>
-				<IconButton
-					size="large"
-					aria-label="show 12 new notifications"
-					color="inherit">
-					<Badge badgeContent={12} color="error">
-						<NotificationsIcon />
-					</Badge>
-				</IconButton>
+				<NotificationsMenu />
 				<AccountMenu />
 			</Toolbar>
 		</AppBar>
