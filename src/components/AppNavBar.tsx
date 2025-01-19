@@ -5,8 +5,6 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import Badge from "@mui/material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
 import ThemeToggle from "./ThemeToggle";
 import SelectContent from "./SelectContent";
 import { drawerWidth } from "./Layout";
@@ -14,6 +12,7 @@ import SearchBar from "./SearchBar";
 import AccountMenu from "./AccountMenu";
 import Box from "@mui/material/Box";
 import NotificationsMenu from "./NotificationsMenu";
+import Messages from "./Messages";
 
 interface AppBarProps extends MuiAppBarProps {
 	open?: boolean;
@@ -58,6 +57,20 @@ interface AppNavBarProps {
 	handleDrawerOpen: () => void;
 	handleDrawerClose: () => void;
 	handleDrawerToggle: () => void;
+}
+
+function getTodaysDate() {
+	const date = new Date();
+	const day = date.getDate();
+	const month = date.toLocaleString("default", { month: "short" });
+	return [day, month] as [number, string];
+}
+
+const todaysDate: [number, string] = getTodaysDate();
+
+function getPastDate(offset: number) {
+	const newDay = todaysDate[0] - offset;
+	return `${newDay.toString()} ${todaysDate[1]}`;
 }
 
 export default function AppNavBar({
@@ -107,15 +120,8 @@ export default function AppNavBar({
 					flexItem
 					sx={{ m: "12px", display: { xs: "none", sm: "block" } }}
 				/>
-				<IconButton
-					size="large"
-					aria-label="show 4 new mails"
-					color="inherit">
-					<Badge badgeContent={2} color="error">
-						<MailIcon />
-					</Badge>
-				</IconButton>
-				<NotificationsMenu />
+				<Messages getPastDate={getPastDate} />
+				<NotificationsMenu getPastDate={getPastDate} />
 				<AccountMenu />
 			</Toolbar>
 		</AppBar>

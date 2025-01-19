@@ -5,23 +5,16 @@ import Avatar, { avatarClasses } from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Badge from "@mui/material/Badge";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import CloseIcon from "@mui/icons-material/Close";
+import MailIcon from "@mui/icons-material/Mail";
 import CheckIcon from "@mui/icons-material/Check";
-import ChatIcon from "@mui/icons-material/Chat";
-import SecurityIcon from "@mui/icons-material/Security";
-import FeedbackIcon from "@mui/icons-material/Feedback";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ListItemText from "@mui/material/ListItemText";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import SimpleBar from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
 
-export default function NotificationsMenu({
-	getPastDate,
-}: {
-	getPastDate: Function;
-}) {
+export default function Messages({ getPastDate }: { getPastDate: Function }) {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 	const openMenu = Boolean(anchorEl);
 	const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -30,26 +23,26 @@ export default function NotificationsMenu({
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
-	const [alertCount, setAlertCount] = React.useState<number | null>(4);
+	const [alertCount, setAlertCount] = React.useState<number | null>(2);
 
 	return (
 		<>
-			<Tooltip title="Notifications">
+			<Tooltip title="Messages">
 				<IconButton
 					onClick={handleClick}
 					size="large"
 					color="inherit"
-					aria-controls={openMenu ? "notifications-menu" : undefined}
+					aria-controls={openMenu ? "messages" : undefined}
 					aria-haspopup="true"
 					aria-expanded={openMenu ? "true" : undefined}>
 					<Badge badgeContent={alertCount} color="error">
-						<NotificationsIcon />
+						<MailIcon />
 					</Badge>
 				</IconButton>
 			</Tooltip>
 			<Menu
 				anchorEl={anchorEl}
-				id="notifications-menu"
+				id="messages"
 				open={openMenu}
 				onClose={handleClose}
 				onClick={handleClose}
@@ -103,7 +96,7 @@ export default function NotificationsMenu({
 						alignItems: "center",
 					}}>
 					<Typography variant="h6" sx={{}}>
-						Notifications
+						Messages
 					</Typography>
 					<Tooltip title="Mark all as read">
 						<IconButton onClick={() => setAlertCount(null)}>
@@ -119,122 +112,116 @@ export default function NotificationsMenu({
 					<MenuItem
 						onClick={handleClose}
 						sx={{ alignItems: "flex-start" }}>
-						<Avatar>
-							<SecurityIcon />
-						</Avatar>
+						<Avatar>A</Avatar>
 						<ListItemText
-							primary="Security Alert"
+							primary="Alex Johnson"
 							secondary={
 								<React.Fragment>
 									<Typography
 										component="span"
 										variant="body2"
+										noWrap
 										sx={{
 											color: "text.primary",
 											display: "block",
-											textWrap: "wrap",
 										}}>
-										Your account password has been updated
-										successfully
+										Hey, just checking in about the report.
+										Did you get a chance to review it?
 									</Typography>
-									{getPastDate(1)}, 11:29 AM
+									22 mins ago
 								</React.Fragment>
 							}
 						/>
-						<Tooltip title="Clear">
+						<Tooltip title="Options">
 							<IconButton sx={{ mr: -0.5 }}>
-								<CloseIcon />
+								<MoreVertIcon />
 							</IconButton>
 						</Tooltip>
 					</MenuItem>
 					<MenuItem
 						onClick={handleClose}
 						sx={{ alignItems: "flex-start" }}>
-						<Avatar>
-							<ChatIcon />
-						</Avatar>
+						<Avatar>E</Avatar>
 						<ListItemText
-							primary="New feature!"
+							primary="Emily Davis"
 							secondary={
 								<React.Fragment>
 									<Typography
 										component="span"
 										variant="body2"
+										noWrap
 										sx={{
 											color: "text.primary",
 											display: "block",
-											textWrap: "wrap",
 										}}>
-										Slack integration is now available
+										Don't forget, the team meeting is at 3
+										PM today. See you there!
 									</Typography>
-									{getPastDate(2)}, 2:14 PM
+									1 hr ago
 								</React.Fragment>
 							}
 						/>
-						<Tooltip title="Clear">
+						<Tooltip title="Options">
 							<IconButton sx={{ mr: -0.5 }}>
-								<CloseIcon />
+								<MoreVertIcon />
 							</IconButton>
 						</Tooltip>
 					</MenuItem>
 					<MenuItem
 						onClick={handleClose}
 						sx={{ alignItems: "flex-start" }}>
-						<Avatar>
-							<ChatIcon />
-						</Avatar>
+						<Avatar>M</Avatar>
 						<ListItemText
-							primary="New Insight Available"
+							primary="Michael Chen"
 							secondary={
 								<React.Fragment>
 									<Typography
 										component="span"
 										variant="body2"
+										noWrap
 										sx={{
 											color: "text.primary",
 											display: "block",
-											textWrap: "wrap",
 										}}>
-										Your sales trends for this quarter have
-										been updated
+										Thanks for the update! I'll take care of
+										the next steps on my end.
 									</Typography>
-									{getPastDate(2)}, 10:47 AM
+									{getPastDate(1)}, 3:46 PM
 								</React.Fragment>
 							}
 						/>
-						<Tooltip title="Clear">
+						<Tooltip title="Options">
 							<IconButton sx={{ mr: -0.5 }}>
-								<CloseIcon />
+								<MoreVertIcon />
 							</IconButton>
 						</Tooltip>
 					</MenuItem>
 					<MenuItem
 						onClick={handleClose}
 						sx={{ alignItems: "flex-start" }}>
-						<Avatar>
-							<FeedbackIcon />
-						</Avatar>
+						<Avatar>S</Avatar>
 						<ListItemText
-							primary="Feedback Request"
+							primary="Sarah Patel"
 							secondary={
 								<React.Fragment>
 									<Typography
 										component="span"
 										variant="body2"
+										noWrap
 										sx={{
 											color: "text.primary",
 											display: "block",
-											textWrap: "wrap",
 										}}>
-										Share your thoughts in our latest survey
+										Can we reschedule our call for tomorrow?
+										Something urgent came up.
 									</Typography>
-									{getPastDate(3)}, 1:30 PM
+									{getPastDate(1)}, 3:10 PM
 								</React.Fragment>
 							}
 						/>
-						<Tooltip title="Clear">
+						<Tooltip title="Options">
 							<IconButton sx={{ mr: -0.5 }}>
-								<CloseIcon />
+								<MoreVertIcon />
 							</IconButton>
 						</Tooltip>
 					</MenuItem>
